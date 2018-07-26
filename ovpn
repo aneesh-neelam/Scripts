@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+import argparse
+import sys
+from subprocess import call
+
+
+def setup_argparser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("command", help="Command: connect | disconnect")
+    return parser
+
+
+def connect():
+    status = call([
+        'openvpn',
+        '--config',
+        '/etc/openvpn/client/aneeshneelam.me.conf',
+        '--daemon',
+    ])
+    sys.exit(status)
+
+
+def disconnect():
+    status = call([
+        'killall',
+        '-SIGINT',
+        'openvpn',
+    ])
+    sys.exit(status)
+
+
+def main():
+    parser = setup_argparser()
+    args = parser.parse_args()
+
+    if args.command == 'connect':
+        connect()
+    elif args.command == 'disconnect':
+        disconnect()
+    else:
+        parser.print_help()
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    main()
