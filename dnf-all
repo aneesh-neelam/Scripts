@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""
+Script uses dnf, for Fedora-based distributions which use dnf
+"""
+
 import sys
 from subprocess import call
 
@@ -11,7 +15,7 @@ def dnf():
         '--refresh',
         '--best',
         '--allowerasing',
-        '-y'
+        '-y',
     ])
     return status
 

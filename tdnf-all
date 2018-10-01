@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""
+Script uses tdnf, for PhotonOS by VMware
+"""
+
 import sys
 from subprocess import call
 
@@ -11,7 +15,7 @@ def tdnf():
         '--refresh',
         '--best',
         '--allowerasing',
-        '-y'
+        '-y',
     ])
     return status
 

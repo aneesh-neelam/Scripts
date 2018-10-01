@@ -1,36 +1,34 @@
 #!/usr/bin/env python3
 
 """
-Script uses apt, for Debian-based distributions which use apt
+Script uses brew, for Homebrew on macOS
 """
 
 import sys
 from subprocess import call
 
 
-def apt_update():
+def brew_update():
     status = call([
-        'apt',
+        'brew',
         'update',
     ])
     return status
 
 
-def apt_dist_upgrade():
+def brew_upgrade():
     status = call([
-        'apt',
-        'dist-upgrade',
-        '--yes',
+        'brew',
+        'upgrade',
     ])
     return status
 
 
-def apt_autoremove():
+def brew_cask_upgrade():
     status = call([
-        'apt',
-        'autoremove',
-        '--purge',
-        '--yes',
+        'brew',
+        'cask',
+        'upgrade',
     ])
     return status
 
@@ -41,13 +39,13 @@ def handle_status(status):
 
 
 def main():
-    status = apt_update()
+    status = brew_update()
     handle_status(status)
 
-    status = apt_dist_upgrade()
+    status = brew_upgrade()
     handle_status(status)
 
-    status = apt_autoremove()
+    status = brew_cask_upgrade()
     handle_status(status)
 
     sys.exit(0)
