@@ -27,8 +27,8 @@ def brew_upgrade():
 def brew_cask_upgrade():
     status = call([
         'brew',
-        'cask',
         'upgrade',
+        '--cask',
     ])
     return status
 
