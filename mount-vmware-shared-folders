@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Tested on Fedora 35 Workstation, ARM aarch64: Out-of-the-Box Installation on VMware Fusion Tech Preview, Build 18656771 on Apple Silicon
-# Use with VMware Hypervisors that support Shared Folders: ESXi, Workstation, Fusion
+# Use with VMware Hypervisors that support Shared Folders: Workstation, Fusion (ESXi has no concept of Shared Folders)
 
 # Can be run as unprivileged user
 
