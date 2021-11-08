@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# Tested on Fedora Workstation 35: Out-of-the-Box Installation
+# Use with VMware Hypervisors that support Shared Folders: ESXi, Workstation, Fusion
+
+# Can be run as unprivileged user
+
+# Mount directory should be empty if already exists
+mkdir ~/shares
+
+# Should have `open-vm-tools` and `open-vm-tools-desktop` installed
+# Edit `/etc/fuse.conf` and add `user_allow_other`
+/usr/bin/vmhgfs-fuse .host:/ ~/shares -o subtype=vmhgfs-fuse,allow_other
