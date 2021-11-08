@@ -8,6 +8,8 @@
 # Mount directory should be empty if already exists
 mkdir ~/shares
 
+# Reference VMware Doc: https://docs.vmware.com/en/VMware-Workstation-Pro/16.0/com.vmware.ws.using.doc/GUID-AB5C80FE-9B8A-4899-8186-3DB8201B1758.html
+
 # Should have `open-vm-tools` and `open-vm-tools-desktop` installed
 # Edit `/etc/fuse.conf` and add `user_allow_other`
 /usr/bin/vmhgfs-fuse .host:/ ~/shares -o subtype=vmhgfs-fuse,allow_other
